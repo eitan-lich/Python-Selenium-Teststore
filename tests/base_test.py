@@ -1,28 +1,25 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import configparser
+import unittest
 
-from pages.home_page import HomePage
 
-
-class BaseTest:
+class BaseTest(unittest.TestCase):
     def setUp(self):
         options = Options()
         options.add_argument('--start-maximized')
+        config = configparser.ConfigParser()
+        config.read('../utils/configuration.ini')
 
-        self.driver = webdriver.Chrome(options=options)
-        self.driver.get("http://teststore.automationtesting.co.uk/")
+        if config['selenium']['browser'] == "chrome":
+            self.driver = webdriver.Chrome(options=options)
 
+        url=config['selenium']['url']
+        self.driver.get(url)
 
+    def tearDown(self):
+        print("im tearing down the session now!")
+        self.driver.quit()
 
-
-
-
-if __name__ == "__main__":
-    options = Options()
-    options.add_argument('--started-maximized')
-    driver = webdriver.Chrome(options=options)
-    driver.get("http://teststore.automationtesting.co.uk/")
-    home_page = HomePage(driver)
-    home_page.search_item("t-shirt")
 
 
