@@ -1,4 +1,6 @@
+
 from pages.base_page import BasePage
+from pages.results_page import ResultsPage
 from utils.locators import HomePageLocators
 
 
@@ -8,5 +10,6 @@ class HomePage(BasePage):
         self.locators = HomePageLocators()
 
     def search_item(self, item):
-        self.find(self.locators.SEARCH_BAR).send_keys(item)
+        self.type_and_enter(self.locators.SEARCH_BAR, item)
+        return ResultsPage(self.driver)
 
