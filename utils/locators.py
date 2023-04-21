@@ -20,7 +20,7 @@ class OrderPageLocators:
 
 class ResultPageLocators:
     FIRST_ITEM = (By.LINK_TEXT, "Hummingbird Printed T-Shirt")
-
+    PRODUCT_LIST = (By.CSS_SELECTOR, "#js-product-list");
 
 class ItemPageLocators:
     ADD_CART_BUTTON = (By.CSS_SELECTOR, ".add-to-cart.btn.btn-primary")

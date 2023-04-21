@@ -15,6 +15,6 @@ class ItemPage(BasePage):
         time.sleep(2)
         self.click(self.locators.CLOSE_POPUP)
 
-    def click_on_cart(self):
+    def click_on_cart(self) -> CartPage:
         self.click(self.locators.CART_BUTTON)
         return CartPage(self.driver)

@@ -8,6 +8,9 @@ class BasePage:
     def find(self, locator):
         return self.driver.find_element(*locator)
 
+    def find_multiple(self, locator):
+        return self.driver.find_elements(*locator)
+
     def click(self, locator):
         self.find(locator).click()
 
@@ -15,7 +18,6 @@ class BasePage:
         return self.url
 
     def type(self, locator, text):
-        print(locator)
         self.find(locator).send_keys(text)
 
     def type_and_enter(self, locator, text):

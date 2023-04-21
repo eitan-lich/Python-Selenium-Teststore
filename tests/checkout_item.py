@@ -6,7 +6,6 @@ from tests.base_test import BaseTest
 
 class CheckoutItem(BaseTest):
 
-
     def test_checkout_item_valid(self):
         homepage = HomePage(self.driver)
         results_page = homepage.search_item("t-shirt")

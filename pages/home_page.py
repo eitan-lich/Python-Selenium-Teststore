@@ -9,7 +9,7 @@ class HomePage(BasePage):
         super().__init__(driver)
         self.locators = HomePageLocators()
 
-    def search_item(self, item):
+    def search_item(self, item) -> ResultsPage:
         self.type_and_enter(self.locators.SEARCH_BAR, item)
         return ResultsPage(self.driver)
 

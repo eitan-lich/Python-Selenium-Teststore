@@ -8,6 +8,6 @@ class CartPage(BasePage):
         super().__init__(driver)
         self.locators = CartPageLocators()
 
-    def checkout(self):
+    def checkout(self) -> OrderPage:
         self.click(self.locators.CHECKOUT_BUTTON)
         return OrderPage(self.driver)
